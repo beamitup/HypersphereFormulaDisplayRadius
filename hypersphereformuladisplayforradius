@@ -1,0 +1,21 @@
+import math
+
+def hypersphere_volume_formula(dimensions):
+    if dimensions < 1:
+        return "Dimension must be a positive integer."
+    
+    if dimensions == 1:
+        return "2 * r"
+    elif dimensions == 2:
+        return "π * r^2"
+    else:
+        if dimensions % 2 == 0:
+            volume_formula = f"π^({dimensions // 2}) / ({dimensions // 2})! * r^{dimensions}"
+        else:
+            volume_formula = f"2 * (2π)^({(dimensions - 1) // 2}) / {(dimensions - 1) // 2}! * r^{dimensions}"
+        return volume_formula
+
+# Input: number of dimensions
+dimensions = int(input("Enter the number of dimensions: "))
+formula = hypersphere_volume_formula(dimensions)
+print(f"The volume formula for a hypersphere in {dimensions} dimensions with radius r is: {formula}")
